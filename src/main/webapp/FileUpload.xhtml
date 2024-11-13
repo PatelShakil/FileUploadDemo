@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>File Upload Demo</title>
+    </h:head>
+    <h:body>
+        <h:messages showDetail="true"/>
+        <h:form enctype="multipart/form-data">
+            <p:fileUpload 
+                listener="#{fileUploadBean.handleFileUpload}"
+                mode="simple"
+                dragDropSupport="false"
+                auto="true"
+                label="Upload File" />
+        </h:form>
+        <h:graphicImage value="http://localhost:8080#{facesContext.externalContext.requestContextPath}/resources/uploads/Activity.png" width="300px" height="300px"
+                        alt="D:\ICT\JAVA\MindsMeet\uploads\Home.png"/>
+
+        <!-- Display the image if it exists -->
+        <h:panelGroup rendered="#{not empty fileUploadBean.uploadedFilePath}">
+            <h:outputText value="Uploaded Image:"/>
+        </h:panelGroup>
+    </h:body>
+</html>
